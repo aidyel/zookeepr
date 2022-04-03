@@ -1,5 +1,4 @@
 const express = require('express');
-const { type } = require('express/lib/response');
 const fs = require('fs');
 const path = require('path');
 const { animals } = require('./data/animals.json');
@@ -77,12 +76,6 @@ function filterByQuery(query, animalsArray) {
       results = filterByQuery(req.query, results);
     }
     res.json(results);
-  });
-
-  app.post('/api/animals', (req, res) => {
-      // req.body is where our incoming content will be
-    console.log(req.body);
-    res.json(req.body);
   });
   
   app.get('/api/animals/:id', (req, res) => {
